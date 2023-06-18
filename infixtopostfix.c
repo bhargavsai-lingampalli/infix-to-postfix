@@ -1,6 +1,5 @@
 #include<stdio.h>
 
-
 int isOperater(char ch);
 int precedence(char symbol);
 int main()
@@ -16,15 +15,12 @@ int main()
 		if(isOperater(infix[i]))
 		{	
 			if(top == -1)
-			{
 				stack[++top] = infix[i];
-			}
 			else if(infix[i] == ')')
 			{
 				while(top > -1 && stack[top] != '(')
-				{
 					postfix[j++] = stack[top--];
-				}
+				
 				top--;
 			}
 			else if(precedence(infix[i]) <= precedence(stack[top]))
@@ -35,23 +31,16 @@ int main()
 				stack[++top] = infix[i];
 			}
 			else 
-			{
 				stack[++top] = infix[i];
-			}
 		}
 		else
-		{
 			postfix[j++] = infix[i];
-		}
 	}
 	
 	while(top > -1)
-	{
-		postfix[j++] =stack[top--];
-	}
+		postfix[j++] = stack[top--];
 	
-	postfix[j] = '\0';
-	
+	postfix[j] = '\0';	
 	printf("%s\n", postfix);
 	return 0;
 }
