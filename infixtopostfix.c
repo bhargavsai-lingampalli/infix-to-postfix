@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int isOperater(char ch);
-int precedence(char symbol);
+int precedence(char operater);
 int main()
 {
 	int top =-1, i, j;
